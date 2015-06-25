@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Model1.Store" Alias="Self" Provider="System.Data.SqlServerCe.4.0" ProviderManifestToken="4.0" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="Model1StoreContainer">
+          <EntitySet Name="Ciudad" EntityType="Model1.Store.Ciudad" store:Type="Tables" />
+          <EntitySet Name="Vecinos" EntityType="Model1.Store.Vecinos" store:Type="Tables" />
+        </EntityContainer>
+        <EntityType Name="Ciudad">
+          <Key>
+            <PropertyRef Name="idCiudad" />
+          </Key>
+          <Property Name="idCiudad" Type="int" Nullable="false" />
+          <Property Name="Nombre" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Vecinos">
+          <Key>
+            <PropertyRef Name="idVecino" />
+          </Key>
+          <Property Name="idVecino" Type="int" Nullable="false" />
+          <Property Name="Pasos" Type="int" Nullable="false" />
+        </EntityType>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="Model1" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="Model1Container" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Ciudad" EntityType="Model1.Ciudad" />
+          <EntitySet Name="Vecinos" EntityType="Model1.Vecinos" />
+          <AssociationSet Name="CiudadVecinos" Association="Model1.CiudadVecinos">
+            <End Role="Ciudad" EntitySet="Ciudad" />
+            <End Role="Vecinos" EntitySet="Vecinos" />
+          </AssociationSet>
+          <AssociationSet Name="VecinosCiudad" Association="Model1.VecinosCiudad">
+            <End Role="Vecinos" EntitySet="Vecinos" />
+            <End Role="Ciudad" EntitySet="Ciudad" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Ciudad">
+          <Key>
+            <PropertyRef Name="idCiudad" />
+          </Key>
+          <Property Type="Int32" Name="idCiudad" Nullable="false" />
+          <Property Type="String" Name="Nombre" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Vecinos" Relationship="Model1.CiudadVecinos" FromRole="Ciudad" ToRole="Vecinos" />
+          <NavigationProperty Name="Vecino" Relationship="Model1.VecinosCiudad" FromRole="Ciudad" ToRole="Vecinos" />
+        </EntityType>
+        <EntityType Name="Vecinos">
+          <Key>
+            <PropertyRef Name="idVecino" />
+          </Key>
+          <Property Type="Int32" Name="idVecino" Nullable="false" />
+          <Property Type="Int32" Name="Pasos" Nullable="false" />
+          <NavigationProperty Name="Ciudad" Relationship="Model1.CiudadVecinos" FromRole="Vecinos" ToRole="Ciudad" />
+          <NavigationProperty Name="Ciudads" Relationship="Model1.VecinosCiudad" FromRole="Vecinos" ToRole="Ciudad" />
+        </EntityType>
+        <Association Name="CiudadVecinos">
+          <End Type="Model1.Ciudad" Role="Ciudad" Multiplicity="1" />
+          <End Type="Model1.Vecinos" Role="Vecinos" Multiplicity="*" />
+        </Association>
+        <Association Name="VecinosCiudad">
+          <End Type="Model1.Vecinos" Role="Vecinos" Multiplicity="1" />
+          <End Type="Model1.Ciudad" Role="Ciudad" Multiplicity="*" />
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Model1StoreContainer" CdmEntityContainer="Model1Container">
+          <EntitySetMapping Name="Ciudad">
+            <EntityTypeMapping TypeName="Model1.Ciudad">
+              <MappingFragment StoreEntitySet="Ciudad">
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="idCiudad" ColumnName="idCiudad" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Vecinos">
+            <EntityTypeMapping TypeName="Model1.Vecinos">
+              <MappingFragment StoreEntitySet="Vecinos">
+                <ScalarProperty Name="Pasos" ColumnName="Pasos" />
+                <ScalarProperty Name="idVecino" ColumnName="idVecino" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

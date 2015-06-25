@@ -8,12 +8,19 @@ namespace Antz.Classes
 {
     class Ant
     {
-        private int[,] route { get; set; }
-        private int orientation { get; set; }
-        private int pheromone { get; set; }
+        public List<City> route { get; set; }
+        public int pheromone = GlobalVar.MAXPHEROMONE;
 
-        public void step()
+        public void step(City city)
         {
+            if (route.Exists(x => x == city))
+            {
+                route.Add(city);
+                if (!city.isFood)
+                    pheromone--;
+                else
+                    pheromone = GlobalVar.MAXPHEROMONE;
+            }
         }
     }
 }

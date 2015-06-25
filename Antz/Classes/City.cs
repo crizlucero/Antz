@@ -8,7 +8,19 @@ namespace Antz.Classes
 {
     class City
     {
-        public int Name;
-        public string[] Neighbors;
+        public string Name { get; set; }
+        public List<List<string>> Neighbors;
+        public bool isFood { get; set; }
+        public bool isNest { get; set; }
+
+        public void showNeighbors()
+        {
+            Console.WriteLine(this.Name);
+            foreach (List<string> neighbor in this.Neighbors)
+            {
+                Console.WriteLine(neighbor[0] + ": " + neighbor[1]);
+            }
+        }
+
     }
 }

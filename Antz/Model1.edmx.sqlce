@@ -1,0 +1,79 @@
+
+-- --------------------------------------------------
+-- Entity Designer DDL Script for SQL Server Compact Edition
+-- --------------------------------------------------
+-- Date Created: 06/25/2015 18:11:18
+-- Generated from EDMX file: c:\users\clucero\documents\visual studio 2012\Projects\Antz\Antz\Model1.edmx
+-- --------------------------------------------------
+
+
+-- --------------------------------------------------
+-- Dropping existing FOREIGN KEY constraints
+-- NOTE: if the constraint does not exist, an ignorable error will be reported.
+-- --------------------------------------------------
+
+
+-- --------------------------------------------------
+-- Dropping existing tables
+-- NOTE: if the table does not exist, an ignorable error will be reported.
+-- --------------------------------------------------
+
+    DROP TABLE [Ciudad];
+GO
+    DROP TABLE [Vecinos];
+GO
+
+-- --------------------------------------------------
+-- Creating all tables
+-- --------------------------------------------------
+
+-- Creating table 'Ciudad'
+CREATE TABLE [Ciudad] (
+    [idCiudad] int  NOT NULL,
+    [Nombre] nvarchar(50)  NULL
+);
+GO
+
+-- Creating table 'Ciudad1Conjunto'
+CREATE TABLE [Ciudad1Conjunto] (
+    [idCiudad] int  NOT NULL,
+    [Nombre] nvarchar(50)  NULL
+);
+GO
+
+-- Creating table 'Vecinos'
+CREATE TABLE [Vecinos] (
+    [idVecino] int  NOT NULL,
+    [Pasos] int  NOT NULL
+);
+GO
+
+-- --------------------------------------------------
+-- Creating all PRIMARY KEY constraints
+-- --------------------------------------------------
+
+-- Creating primary key on [idCiudad] in table 'Ciudad'
+ALTER TABLE [Ciudad]
+ADD CONSTRAINT [PK_Ciudad]
+    PRIMARY KEY ([idCiudad] );
+GO
+
+-- Creating primary key on [idCiudad] in table 'Ciudad1Conjunto'
+ALTER TABLE [Ciudad1Conjunto]
+ADD CONSTRAINT [PK_Ciudad1Conjunto]
+    PRIMARY KEY ([idCiudad] );
+GO
+
+-- Creating primary key on [idVecino] in table 'Vecinos'
+ALTER TABLE [Vecinos]
+ADD CONSTRAINT [PK_Vecinos]
+    PRIMARY KEY ([idVecino] );
+GO
+
+-- --------------------------------------------------
+-- Creating all FOREIGN KEY constraints
+-- --------------------------------------------------
+
+-- --------------------------------------------------
+-- Script has ended
+-- --------------------------------------------------
