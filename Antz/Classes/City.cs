@@ -9,7 +9,7 @@ namespace Antz.Classes
     class City
     {
         public string Name { get; set; }
-        public List<List<string>> Neighbors;
+        public List<List<string>> Neighbors = new List<List<string>>();
         public bool isFood { get; set; }
         public bool isNest { get; set; }
 

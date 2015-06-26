@@ -9,7 +9,7 @@ namespace Antz.Classes
     class Ant
     {
         public List<City> route { get; set; }
-        public int pheromone = GlobalVar.MAXPHEROMONE;
+        public int pheromone = GlobalVars.MAXPHEROMONE;
 
         public void step(City city)
         {
@@ -19,7 +19,7 @@ namespace Antz.Classes
                 if (!city.isFood)
                     pheromone--;
                 else
-                    pheromone = GlobalVar.MAXPHEROMONE;
+                    pheromone = GlobalVars.MAXPHEROMONE;
             }
         }
     }
