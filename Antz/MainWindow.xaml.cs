@@ -30,12 +30,16 @@ namespace Antz
             InitializeComponent();
             this.addNest();
         }
-
+        /// <summary>
+        /// Modifica la cantidad de pasos que se darán
+        /// </summary>
         private void sldNumber_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
             this.lblNumber.Content = this.sldNumber.Value;
         }
-
+        /// <summary>
+        /// Agrega el mundo
+        /// </summary>
         private void addWorld()
         {
             //foreach()
@@ -44,6 +48,9 @@ namespace Antz
             //foreach()
             this.world.updateCities("", "", 0);
         }
+        /// <summary>
+        /// Agrega el nido
+        /// </summary>
         private void addNest()
         {
             this.nest.addAnts(100);

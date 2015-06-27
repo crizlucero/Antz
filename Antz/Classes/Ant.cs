@@ -8,6 +8,7 @@ namespace Antz.Classes
 {
     class Ant
     {
+        public int ID { get; set; }
         public List<City> route { get; set; }
         public int pheromone = GlobalVars.MAXPHEROMONE;
 
