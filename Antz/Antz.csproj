@@ -76,6 +76,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Classes\Nest.cs" />
     <Compile Include="GlobalVar.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -87,7 +88,6 @@
     </Compile>
     <Compile Include="Classes\Ant.cs" />
     <Compile Include="Classes\City.cs" />
-    <Compile Include="Classes\Nest.cs" />
     <Compile Include="Classes\World.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
